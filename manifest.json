@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Duel Solver V1",
+  "version": "1.0.0",
+  "description": "Auto-solves Logic Duel puzzles on Matiks (HCF, LCM, MOD, Roots, Sum of Squares, Prime Factors, Squares) with auto-fill.",
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "https://www.matiks.com/*",
+    "https://matiks.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.matiks.com/*", "https://matiks.com/*"],
+      "js": ["glyph-templates.js", "content.js"],
+      "run_at": "document_idle",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Logic Duel",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

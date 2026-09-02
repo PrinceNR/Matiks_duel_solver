@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matiks Duel Assistant</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand-lockup">
+          <img class="brand-icon" src="icons/icon48.png" alt="" aria-hidden="true">
+          <div>
+            <p class="eyebrow">MATIKS</p>
+            <h1>Duel Assistant</h1>
+          </div>
+        </div>
+        <span id="connection" class="connection-pill"><i aria-hidden="true"></i>Ready</span>
+      </header>
+
+      <section class="hero" aria-labelledby="heroTitle">
+        <div>
+          <p class="kicker">DUEL CONTROL CENTER</p>
+          <h2 id="heroTitle">Solve with <em>clarity.</em></h2>
+        </div>
+        <span class="control-badge">One at a time</span>
+      </section>
+
+      <section class="puzzle-card" aria-labelledby="puzzleHeading">
+        <div class="card-heading">
+          <span class="card-label" id="puzzleHeading">Detected challenge</span>
+          <span class="card-chip">Live puzzle</span>
+        </div>
+        <div class="mode-value" id="modeValue">Waiting for a puzzle</div>
+        <div class="target-row">
+          <span class="target-label">Question</span>
+          <output id="targetValue" class="target-value" aria-live="polite">—</output>
+        </div>
+      </section>
+
+      <section class="solver-banner" aria-labelledby="answerHeading">
+        <div class="solver-header">
+          <span class="solver-title" id="answerHeading">Calculated answer</span>
+          <button id="fillButton" class="fill-button" type="button" title="Fill the answer without submitting it">
+            <span aria-hidden="true">↳</span> Fill only
+          </button>
+        </div>
+        <div class="solver-body">
+          <output id="solvedAnswer" class="solver-answer" aria-live="polite">—</output>
+        </div>
+      </section>
+
+      <button id="scanButton" class="scan-button" type="button" aria-label="Solve the current Matiks puzzle">
+        <span class="scan-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <circle cx="11" cy="11" r="6"></circle>
+            <path d="m16 16 4 4"></path>
+            <path d="M8.5 11h5M11 8.5v5"></path>
+          </svg>
+        </span>
+        <span class="scan-copy"><strong>Solve current puzzle</strong><small>Detect and calculate the visible question</small></span>
+        <span class="scan-arrow" aria-hidden="true">→</span>
+      </button>
+
+      <section class="controls-card" aria-labelledby="behaviorHeading">
+        <div class="controls-heading" id="behaviorHeading">Solver behavior</div>
+
+        <div class="watch-row">
+          <div class="watch-copy">
+            <span class="watch-title">Continuous math detection</span>
+            <small>Watch for new arithmetic rounds</small>
+          </div>
+          <label class="toggle" for="watchToggle" title="Turn continuous question detection on or off">
+            <input id="watchToggle" type="checkbox" role="switch" aria-label="Continuously detect math questions">
+            <span class="toggle-track"></span>
+          </label>
+        </div>
+
+        <div class="watch-row">
+          <div class="watch-copy">
+            <span class="watch-title">Auto-submit math answers</span>
+            <small>Fill and press Enter after calculation</small>
+          </div>
+          <label class="toggle" for="autoFillToggle" title="Submit the calculated answer automatically">
+            <input id="autoFillToggle" type="checkbox" role="switch" aria-label="Automatically submit math answers">
+            <span class="toggle-track"></span>
+          </label>
+        </div>
+      </section>
+
+      <div id="status" class="status" role="status" aria-live="polite">Open a Matiks duel to begin.</div>
+      <p class="scope-note">Logic Duel stays manual: one question per “Solve current puzzle” click.</p>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
