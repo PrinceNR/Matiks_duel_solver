@@ -1,177 +1,165 @@
 # Matiks Duel Assistant
 
-> A simple Chrome extension that detects and solves supported Matiks Math and Logic Duel questions.
+> A Chrome extension that reads Matiks Math and Logic Duel questions and works out the answer for you.
 
-Matiks Duel Assistant helps you calculate answers while playing supported duel modes on [Matiks](https://www.matiks.com/). Open a duel, click the extension, and let it read the visible question and calculate the answer for you.
+I built this to take the tedium out of grinding duels on [Matiks](https://www.matiks.com/). Open a duel, click the extension icon, and it reads whatever question is on screen and calculates the answer — no typing, no mental math under a timer.
 
-The extension currently supports **Logic Duel**, **Math Sprint Duel**, and **Math Fast Finger First**. We plan to add more duel modes in future updates.
+Right now it handles **Logic Duel**, **Math Sprint Duel**, and **Math Fast Finger First**. More modes are on the way as I find time to add them.
 
-## What can it do?
+## What it actually does
 
-- Solve supported **Logic Duel** questions.
-- Solve arithmetic questions in **Math Sprint Duel**.
-- Solve supported **Math Fast Finger First** questions.
-- Detect questions directly from the page or from the visible game area.
-- Display the detected question and calculated answer in a simple popup.
-- Fill an answer without submitting it.
-- Automatically detect and submit supported arithmetic questions when enabled.
-- Work locally in your browser without uploading puzzle screenshots.
+- Solves Logic Duel puzzles
+- Solves arithmetic in Math Sprint Duel
+- Solves supported Math Fast Finger First questions
+- Reads the question straight off the page (or the visible game area, if it's rendered visually)
+- Shows you the detected question and the answer in a small popup before anything happens
+- Can fill the answer in without submitting it, so you can double-check first
+- Can auto-detect and auto-submit arithmetic answers if you turn that on
+- Runs entirely in your browser — nothing gets uploaded anywhere
 
-## Supported questions
+## What it can solve
 
-The extension can currently solve:
-
-- Addition, subtraction, multiplication, and division
-- Calculations containing several numbers or operators
+- Addition, subtraction, multiplication, division
+- Multi-step expressions with several numbers or operators
 - Remainders and MOD
 - Powers
-- Square, cube, and indexed roots
+- Square roots, cube roots, and indexed roots
 - HCF / GCD
 - LCM
 - Prime factorization
 - Sum of squares
 
-Support can vary when Matiks changes its page layout or introduces a new question design.
+A quick caveat: Matiks tweaks its UI now and then, and when it does, detection can break until I catch up and push a fix. If something stops working, it's probably that.
 
-## Installation
+## Getting it installed
 
-You do not need programming knowledge to install the extension.
+You don't need to know how to code for this part.
 
-### 1. Download the extension
+**1. Grab the files**
 
-1. Select the green **Code** button near the top of this GitHub page.
-2. Select **Download ZIP**.
-3. Extract the downloaded ZIP file to a folder on your computer.
+- Click the green **Code** button at the top of this repo
+- Choose **Download ZIP**
+- Extract it somewhere you'll remember
 
-Alternatively, developers can clone the repository:
+If you're comfortable with git, you can just clone it instead:
 
 ```bash
 git clone https://github.com/PrinceNR/Matiks_duel_solver.git
 ```
 
-### 2. Add it to Chrome
+**2. Load it into Chrome**
 
-1. Open Google Chrome.
-2. Enter `chrome://extensions/` in the address bar.
-3. Turn on **Developer mode** in the top-right corner.
-4. Select **Load unpacked**.
-5. Choose the extracted project folder—the folder that directly contains `manifest.json`.
+1. Go to `chrome://extensions/`
+2. Flip on **Developer mode** (top right)
+3. Click **Load unpacked**
+4. Select the folder that has `manifest.json` sitting directly inside it — not a subfolder, the actual root
 
-The **Matiks Duel Assistant** icon should now appear in your extensions list. You can pin it from Chrome's Extensions menu for easier access.
+That's it. You should see the Matiks Duel Assistant icon show up in your extensions list — pin it so it's easy to reach.
 
-## How to use it
+## Using it
 
-### Solve one question
+### Solving a single question
 
-This is the easiest and safest way to try the extension:
+This is the safest way to try it out first:
 
-1. Open [Matiks](https://www.matiks.com/) and start a supported duel.
-2. Wait until the complete question is visible.
-3. Select the **Matiks Duel Assistant** extension icon.
-4. Select **Solve current puzzle**.
-5. Check the detected question and calculated answer in the popup.
+1. Open a duel on Matiks and wait until the whole question is visible on screen
+2. Click the extension icon
+3. Hit **Solve current puzzle**
+4. Check the popup — it'll show what it read and what it calculated
 
-Logic Duel is intentionally handled one question at a time. Select **Solve current puzzle** for each new Logic Duel question.
+Logic Duel is handled question-by-question on purpose, so you'll click **Solve current puzzle** again each time a new one shows up.
 
-### Fill without submitting
+### Checking an answer before it gets submitted
 
-After the answer is calculated, select **Fill only**. The extension will place the answer in the game input but will not intentionally submit it. This lets you check the answer first.
+Once you've got a calculated answer, hit **Fill only**. It drops the answer into the input box but doesn't press enter for you — good for a sanity check the first few times.
 
-### Continuous arithmetic solving
+### Letting it run on its own for math rounds
 
-For supported Math Sprint and Fast Finger arithmetic rounds:
+For Math Sprint and Fast Finger First:
 
-1. Turn on **Continuous math detection** to watch for new arithmetic questions.
-2. Turn on **Auto-submit math answers** if you also want the extension to fill the answer and press Enter.
+1. Turn on **Continuous math detection** — it'll start watching for new questions as they appear
+2. If you also want it to submit automatically, turn on **Auto-submit math answers**
 
-Try manual solving first and confirm that the extension reads your questions correctly before enabling automatic submission.
+My honest recommendation: try it manually a few times first, make sure it's reading your questions correctly, *then* turn on auto-submit.
 
-## Extension controls
+## The controls, quickly
 
-| Control | What it does |
+| Control | Does what |
 | --- | --- |
-| **Solve current puzzle** | Reads the visible question and calculates its answer. |
-| **Fill only** | Places the calculated answer in the input without intentionally submitting it. |
-| **Continuous math detection** | Watches for new supported arithmetic rounds. |
-| **Auto-submit math answers** | Fills and submits supported arithmetic answers automatically. |
+| Solve current puzzle | Reads what's on screen and calculates the answer |
+| Fill only | Puts the answer in the box, doesn't submit |
+| Continuous math detection | Keeps an eye out for new arithmetic questions |
+| Auto-submit math answers | Fills and submits automatically |
 
-## If it does not work
+## When something's not working
 
-Try these quick fixes:
+A few things worth checking before assuming it's broken:
 
-- Make sure you selected the folder that directly contains `manifest.json` during installation.
-- Keep the complete question visible before selecting **Solve current puzzle**.
-- Refresh the Matiks page and try again.
-- Open `chrome://extensions/`, find this extension, and select **Reload** after installing an update.
-- Keep Chrome zoom and Windows display scaling near their normal values if a visually rendered question is not recognized.
-- Turn continuous detection off and on again after changing duel modes.
+- Double check you loaded the folder that directly contains `manifest.json`
+- Make sure the full question is visible before clicking Solve
+- A plain refresh of the Matiks page fixes more than you'd expect
+- After updating the extension, go to `chrome://extensions/` and hit **Reload**
+- If a rendered (image-style) question isn't being picked up, check that Chrome zoom and your display scaling are at normal levels
+- Switched duel modes and continuous detection is acting weird? Toggle it off, then on again
 
-Matiks may update its interface at any time. Such changes can temporarily affect question detection until this extension is updated.
+## Where this came from
 
-## How this project started
+This isn't built from a blank slate — it's based on [@rashydaly's Matiks Duel Solver](https://github.com/rashydaly/Matiks-Duel-Solver), which already had Logic Duel solving working. Credit to that project for the foundation.
 
-This project was **not built entirely from scratch**.
+What I've added on top of it:
 
-It is based on the work and idea from [@rashydaly's Matiks Duel Solver](https://github.com/rashydaly/Matiks-Duel-Solver), which already supported Logic Duel solving. We appreciate the original project and its contribution.
+- Math Sprint Duel support
+- Math Fast Finger First support
+- Visual detection for questions that are rendered rather than plain text
+- A popup that's easier to actually use
+- Separate, cleaner workflows for manual Logic Duel solving vs. continuous math solving
 
-Building on that foundation, this project adds and improves support for:
+## How it works, roughly
 
-- Math Sprint Duel solving
-- Math Fast Finger First solving
-- Visual arithmetic-question detection
-- A redesigned, easier-to-use extension popup
-- Separate manual Logic Duel and continuous arithmetic workflows
+1. Pulls the visible question off the Matiks page
+2. Falls back to local visual recognition if the question is rendered as an image instead of text
+3. Turns whatever it detects into a clean expression
+4. Does the math in plain JavaScript, locally
+5. Shows you the result, and only fills or submits it if you've asked it to
 
-## How it works
+No server, no external API calls. Just a Manifest V3 service worker, a content script, and a solving engine that runs in your browser.
 
-At a high level, the extension:
+## On privacy
 
-1. Reads the visible Matiks question from the webpage.
-2. Uses local visual recognition when the question is drawn instead of being available as normal text.
-3. Converts the detected question into a clean mathematical expression.
-4. Calculates the answer locally with JavaScript.
-5. Shows the result and, only when requested, fills or submits it.
+- Everything is calculated on your machine
+- No puzzle screenshots or images are ever uploaded
+- No analytics, no remote scripts
+- It only asks for permission on Matiks pages
 
-No server or external runtime is required. The project uses a Chrome Manifest V3 service worker, content scripts, browser storage, and a local JavaScript solving engine.
+As with any unpacked extension, it's worth skimming the source before you install it — that's just good practice, not specific to this project.
 
-## Privacy
+## What's next
 
-- Puzzle calculation happens locally in your browser.
-- The extension does not upload captured puzzle images.
-- It does not include analytics or remote JavaScript.
-- It requests access only to supported Matiks pages.
+- Support for more duel modes
+- Better recognition across different screen sizes
+- More automated testing
+- Smoothing out install and setup even further
 
-You should always review the source code before installing any unpacked browser extension.
+If you've got ideas or run into something odd, I'd genuinely like to hear about it.
 
-## Future plans
+## Found a bug, or just want to say hi?
 
-- Add support for more Matiks duel modes
-- Improve recognition across different screen sizes and layouts
-- Add more automated tests
-- Make installation and usage even easier
+Email me: [princenrtvm@gmail.com](mailto:princenrtvm@gmail.com)
 
-Suggestions and contributions are welcome.
-
-## Need help?
-
-If you need any assistance, find a bug, or have a suggestion, please contact me. I am happy to help.
-
-📧 **Email:** [princenrtvm@gmail.com](mailto:princenrtvm@gmail.com)
-
-You can also open an issue in this repository and explain:
+Or open an issue here and include:
 
 - Which duel mode you were playing
-- What question appeared
-- What answer you expected
-- What the extension detected or displayed
+- What the question was
+- What you expected the answer to be
+- What the extension actually showed
 - Your Chrome version and browser zoom level
 
 ## Disclaimer
 
-This is an independent educational project and is not affiliated with, endorsed by, or sponsored by Matiks. Matiks names and visual assets belong to their respective owners.
+This is an independent, educational side project — not affiliated with or endorsed by Matiks. All Matiks names and visual assets belong to their respective owners.
 
-Use the extension only where automation is allowed. Automated play may violate platform, classroom, competition, or tournament rules. You are responsible for using it fairly and following the applicable rules.
+Please use this only where automation is actually allowed. Some classrooms, competitions, and tournaments have rules against this kind of thing, and that's on you to check and respect.
 
 ---
 
-If this project helps you, consider giving the repository a ⭐. It helps others discover the extension and encourages future improvements.
+If this saved you some time, a ⭐ on the repo goes a long way — it helps other people find it and keeps me motivated to keep improving it.
