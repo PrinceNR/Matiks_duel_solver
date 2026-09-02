@@ -47,6 +47,8 @@ If you're comfortable with git, you can just clone it instead:
 git clone https://github.com/PrinceNR/Matiks_duel_solver.git
 ```
 
+or you can give this readme file to chatgpt or claude and ask them to guide you
+
 **2. Load it into Chrome**
 
 1. Go to `chrome://extensions/`
